@@ -1,0 +1,121 @@
+.borr_book {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    color: #333333;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+  
+  .borr_book h2 {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #88c6f8;
+    margin: 0;
+    padding-left: 0px;
+    text-decoration: underline;
+    
+  }
+  
+  .borr_book table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly translucent white background */
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .borr_book th,
+  .borr_book td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 14px;
+  }
+  
+  .borr_book th {
+    background-color: #4CAF50; /* Green header */
+    color: white;
+  }
+  
+  .borr_book tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .borr_book tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .borr_book img {
+    width: 100px;
+    height: 150px;
+    border-radius: 4px;
+    object-fit: cover;
+  }
+  
+  .borr_book p {
+    text-align: left;
+    font-size: 16px;
+    color: black;
+    margin-top: 20px;
+  }
+
+
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .borr_book {
+      padding: 10px;
+    }
+  
+    .borr_book h2 {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+  
+    .borr_book table {
+      display: block;
+      overflow-x: auto; /* Enable horizontal scrolling for tables */
+      white-space: nowrap;
+    }
+  
+    .borr_book th,
+    .borr_book td {
+      font-size: 12px;
+      padding: 8px;
+    }
+  
+    .borr_book img {
+      width: 80px;
+      height: 120px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .borr_book h2 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+  
+    .borr_book p {
+      font-size: 14px;
+      margin-left: 65px;
+    }
+  
+    .borr_book img {
+      width: 60px;
+      height: 90px;
+    }
+  
+    .borr_book th,
+    .borr_book td {
+      font-size: 10px;
+      padding: 5px;
+    }
+  }
+  

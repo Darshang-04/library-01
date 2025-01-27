@@ -1,0 +1,103 @@
+.adminContainer {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
+  
+  .adminTitle {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .toggleButtons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .toggleButton {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    background-color: white;
+    color: #007bff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .toggleButton.active {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .toggleButton:hover {
+    background-color: #0056b3;
+    color: white;
+  }
+  
+  .searchInput {
+    display: block;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+  }
+  
+  .requestsContainer,
+  .waitlistContainer {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sectionTitle {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .requestsList,
+  .waitlistList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .requestItem,
+  .waitlistItem {
+    margin-bottom: 15px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .actionButton {
+    margin: 5px 5px 0 0;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .actionButton.approve {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .actionButton.reject {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .actionButton:hover {
+    opacity: 0.9;
+  }
+  

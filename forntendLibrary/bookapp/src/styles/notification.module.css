@@ -1,0 +1,123 @@
+.notif {
+  width: 90%;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  color: #333333;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  }
+  
+  .notif h2 {
+    text-align: left;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #88c6f8;
+    margin: 0;
+    padding-left: 0px;
+    text-decoration: underline;
+  }
+  
+  .notif p {
+    text-align: left;
+    font-size: 16px;
+    color: black;
+    margin-top: 20px;
+  }
+  
+  .notif ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .notif li {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #333333;
+  }
+  
+  .notif div {
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .notif div:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .notif hr {
+    border: 0;
+    height: 1px;
+    background-color: #ddd;
+    margin: 10px 0;
+  }
+
+  @media (max-width: 768px) {
+    .notif {
+      padding: 15px;
+      margin: 20px auto;
+    }
+  
+    .notif h2 {
+      font-size: 1.8rem;
+      text-align: center; /* Center heading for smaller screens */
+    }
+  
+    .notif p {
+      font-size: 14px;
+      text-align: justify; /* Better readability on smaller screens */
+    }
+  
+    .notif .book-image {
+      max-width: 150px;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+    }
+  
+    .notif div {
+      padding: 10px;
+    }
+  }
+  
+
+  /* Respnsive css */
+  
+  /* Mobile Screens (max-width: 480px) */
+  @media (max-width: 480px) {
+    .notif {
+      width: 95%;
+    }
+  
+    .notif h2 {
+      font-size: 1.5rem;
+    }
+  
+    .notif p {
+      font-size: 14px;
+      line-height: 1.4; /* Improve readability on small screens */
+    }
+  
+    .notif .book-image {
+      width: 100px;
+      margin: 10px auto;
+      display: block;
+    }
+  
+    .notif div {
+      padding: 8px;
+      margin-bottom: 5px;
+    }
+  
+    .notif li {
+      font-size: 14px;
+    }
+  }
+  

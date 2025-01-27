@@ -1,0 +1,213 @@
+.books_container {
+  width: 100%;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  /* background-image: url('../asset/images/backgrnd4.webp'); */
+  /* background-repeat: repeat-y; */
+  /* position: relative; */
+  z-index: 0;
+}
+
+.books_container h1 {
+  text-align: center; /* Center the heading */
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0; /* Remove default margin */
+  padding: 20px 0; /* Add padding for spacing */
+  position: relative; /* Add padding for spacing */
+}
+
+.control_bar{
+  width: 105%;
+  display: flex;
+  justify-content: space-between; /* Space between heading and right-aligned elements */
+  align-items: center; /* Align items vertically */
+  padding: 0px 20px; /* Add padding for spacing */
+  position: relative;
+  border-radius: 15px;
+  /* box-shadow: 1px 3px 15px rgba(0, 0, 0, 38.2); */
+}
+.control_bar h1{
+  /* flex: 1;  */
+  text-align: left;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #88c6f8;
+  margin: 0;
+  padding-left: 25px;
+  text-decoration: underline;
+}
+
+.filter_bar,
+.search_bar {
+  display: inline-block; /*Ensure they align side by side*/
+  margin-left: 15px; /* Space between filter and search bar */
+}
+
+
+.search_bar input {
+  padding: 4px 4px;
+  margin-left: -255px;
+  font-size: 0.7rem;
+  color: #333;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search_bar input:focus {
+  border-color: #88c6f8;
+  box-shadow: 0 0 5px #88c6f8;
+}
+
+
+
+.books_row {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  gap: 15px;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.book_card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 6px;
+  margin-top: 0px;
+  margin-left: 40px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.book_card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.book_image {
+  position: relative;
+  width: 250px;
+  height: 350px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.book_title {
+  font-size: 16px;
+  color: #333;
+  margin: 1px 0;
+  font-weight: bold;
+}
+
+.book_author {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.book_quantity {
+  font-size: 14px;
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.filter_bar select {
+  margin-left: 395px;
+  padding: 4px 4px;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #ffffff;
+  background: #3b3b3b;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.filter_bar select:hover {
+  background: #505050;
+}
+
+.filter_bar select:focus {
+  border: 2px solid #2575fc;
+  box-shadow: 0 0 5px #2575fc;
+}
+
+.view_pdf_button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.view_pdf_button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+/* Media Queries for Responsiveness */
+
+/* Large screens (default) */
+@media (min-width: 1024px) {
+  .control_bar {
+      flex-wrap: nowrap; /* Keep items in a row */
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .control_bar {
+      flex-wrap: wrap;
+      justify-content: center; /* Center align items */
+  }
+  .control_bar h1 {
+      flex: 1 100%;
+      padding-left: 0; /* Reset padding */
+  }
+  .search_bar input {
+      width: 250px; /* Reduce input width */
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+  .control_bar {
+      flex-direction: column; /* Stack items vertically */
+      align-items: center;
+  }
+  .control_bar h1 {
+      margin-bottom: 10px; /* Add spacing between elements */
+  }
+  .search_bar input {
+      width: 100%; /* Full width on small screens */
+      margin-top: 10px;
+  }
+  .filter_bar select {
+      width: 100%; /* Full width for dropdown */
+  }
+}
+
+@media (max-width: 480px) {
+  .book_card {
+      max-width: 100%; /* Full width for book cards */
+  }
+}

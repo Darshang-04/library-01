@@ -1,0 +1,126 @@
+.cantainer{
+    max-width: 1400px;
+    margin: 0 auto;
+}
+.mainpage{
+    width: 100%;
+    height: 100%;
+    padding: 5px 10px;
+}
+.header{
+    padding: 5px;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.h1{
+    font-size: 25px;
+    margin: 5px 0;
+}
+.divider{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.input{
+    background-color: transparent;
+    color: black;
+    width: 300px;
+    height: 30px;
+    padding: 18px 15px;
+    font-size: medium;
+    border-radius: 50px;
+}
+.member_button{
+    font-size: medium;
+    padding: 13px 20px;
+    border-radius: 50px;
+    background-color: rgb(5, 153, 5);
+    color: white;
+    cursor: pointer;
+}
+.button{
+    font-size: medium;
+    padding: 13px 20px;
+    border-radius: 50px;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+}
+
+.filterButton {
+  margin-right: 8px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  color: black;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.activeButton {
+  background-color: #0070f3;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+/* Table container */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  /* Table header */
+  .thead {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    text-align: left;
+  }
+  
+  .th {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+    font-weight: 600;
+  }
+  
+  /* Table rows */
+  .tr:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .td {
+    padding: 12px;
+    border: 1px solid #e5e7eb;
+  }
+  
+  /* Button styles */
+  .buttonEdit {
+    background-color: #3b82f6;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttonEdit:hover {
+    background-color: #2563eb;
+  }
+  
+  .buttonCancel {
+    background-color: #ef4444;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttonCancel:hover {
+    background-color: #dc2626;
+  }
+  

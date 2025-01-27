@@ -1,0 +1,432 @@
+.profile{
+    background-color: #e9f2f9;
+  }
+  
+  .uinfo {
+    display: flex;
+    flex-direction: row;
+    width: 53%;
+    height: 700px;
+    margin-left: 310px;
+  }
+
+  .uinfo::before{
+    content: "";
+    width: 100px;
+    height: 100px;
+    /* background-image: url("../asset/images/user.jpeg"); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: absolute;
+    top: 95px;
+    left: 33%;
+    transform: translateX(-50%);
+    border: 4px solid #ffffff;
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile h1 {
+    margin: 8px 0;
+    /* font-size: 20px; */
+    color: #333333;
+  }
+
+  .profile p {
+    font-size: 14px;
+    color: #555555;
+  }
+
+  /* .hr {
+    border: 0;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+  } */
+
+
+
+.first{
+  background-color: #c0def6;
+  width: 400px;
+  height: 570px;
+  margin-bottom: 10px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+
+}
+
+.first h1{
+  margin: 145px 30px 10px;
+  color: #46adfb;
+}
+
+.first h3{
+  margin-top: 30px;
+  margin-left: 20px;
+  color: #249bf7;
+}
+
+.first p{
+  margin-left: 20px;
+}
+
+.midN{
+  display: flex;
+  flex-direction: row;
+}
+
+.midN h2{
+  background-color: #068efe;
+  color: #068efe;
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+
+.midN div{
+  margin-left: -10px;
+}
+
+.dob{
+  display: flex;
+  flex-direction: row;
+}
+
+.dob h2{
+  background-color: #068efe;
+  color: #068efe;
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+
+.dob div{
+  margin-left: -10px;
+}
+
+.gen{
+  display: flex;
+  flex-direction: row;
+}
+
+.gen h2{
+  background-color: #068efe;
+  color: #068efe;
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+
+.gen div{
+  margin-left: -10px;
+}
+
+
+.second h1{
+margin: 50px 30px 10px;
+color: #eef3f6;
+}
+
+.second{
+  background-color: #c0def6;
+  width: 400px;
+  height: 570px;
+  margin-bottom: 0px;
+  padding-left: 13px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+
+}
+
+.second h3{
+  margin-top: 30px;
+  margin-left: 20px;
+  color: #249bf7;
+}
+
+.second p{
+  margin-left: 20px;
+}  
+
+.email{
+  display: flex;
+  flex-direction: row;
+}
+.email h2{
+  background-color: #068efe;
+  color: #068efe;
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+.email div{
+  margin-left: -10px;
+}
+
+.phone{
+  display: flex;
+  flex-direction: row;
+}
+.phone h2{
+  background-color: #068efe;
+  color: #068efe;
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+.phone div{
+  margin-left: -10px;
+}
+
+.sid{
+  display: flex;
+  flex-direction: row;
+}
+.sid h2{
+  background-color: #068efe;
+  color: #068efe;
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+.sid div{
+  margin-left: -10px;
+}
+
+.dept{
+  display: flex;
+  flex-direction: row;
+}
+.dept h2{
+  background-color: #068efe;
+  color: #068efe;
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+.dept div{
+  margin-left: -10px;
+}
+
+.yr{
+  display: flex;
+  flex-direction: row;
+}
+.yr h2{
+  background-color: #068efe;
+  color: #068efe;
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+.yr div{
+  margin-left: -10px;
+}
+
+.lc{
+  display: flex;
+  flex-direction: row;
+}
+.lc h2{
+  background-color: #068efe;
+  color: #068efe;
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+.lc div{
+  margin-left: -10px;
+}
+
+
+
+
+
+
+
+/* Default styles (Desktop) */
+/* Your original CSS code */
+
+/* Mobile Phones (up to 600px) */
+@media only screen and (max-width: 600px) {
+.uinfo {
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.uinfo::before {
+  width: 80px;
+  height: 80px;
+  top: 93px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile h1 {
+  font-size: 16px;
+  text-align: center;
+}
+
+.profile p {
+  font-size: 12px;
+  text-align: left;
+}
+
+.first, .second {
+  width: 90%;
+  height: auto;
+  margin: 10px auto;
+  padding-left: 10px;
+}
+
+.first h1, .second h1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.midN, .dob, .gen, .email, .phone, .sid, .dept, .yr, .lc {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.midN h2, .dob h2, .gen h2, .email h2, .phone h2, .sid h2, .dept h2, .yr h2, .lc h2 {
+  margin-left: 30px;
+  width: 11px;
+  height: 55px;
+  padding: 0px;
+  border-radius: 6px;
+  margin-top: 19px;
+}
+
+.midN div, .dob div, .gen div, .email div, .phone div, .sid div, .dept div, .yr div, .lc div {
+    margin-left: 32px;
+    margin-top: -74px;
+    margin-bottom: 15px;
+}
+}
+
+/* Tablets (600px to 900px) */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+.uinfo {
+  flex-direction: row;
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.uinfo::before {
+  width: 90px;
+  height: 90px;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile h1 {
+  font-size: 18px;
+  text-align: center;
+}
+
+.profile p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.first, .second {
+  width: 80%;
+  height: auto;
+  margin: 15px auto;
+}
+
+.first h1, .second h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.midN, .dob, .gen, .email, .phone, .sid, .dept, .yr, .lc {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.midN div, .dob div, .gen div, .email div, .phone div, .sid div, .dept div, .yr div, .lc div {
+  margin-left: 5px;
+}
+}
+
+/* Pro Tablets (900px to 1200px) */
+@media only screen and (min-width: 901px) and (max-width: 1200px) {
+.uinfo {
+  flex-direction: row;
+  width: 70%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.uinfo::before {
+  width: 100px;
+  height: 100px;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.profile h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.profile p {
+  font-size: 16px;
+  text-align: center;
+}
+
+.first, .second {
+  width: 70%;
+  height: auto;
+  margin: 20px auto;
+}
+
+.first h1, .second h1 {
+  font-size: 22px;
+  text-align: center;
+}
+
+.midN, .dob, .gen, .email, .phone, .sid, .dept, .yr, .lc {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.midN div, .dob div, .gen div, .email div, .phone div, .sid div, .dept div, .yr div, .lc div {
+  margin-left: 10px;
+}
+}

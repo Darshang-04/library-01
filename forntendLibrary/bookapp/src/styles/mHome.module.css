@@ -1,0 +1,25 @@
+.backgroundVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the video covers the section */
+    z-index: -1; /* Sends the video behind the content */
+    opacity: 1; /* Adjust transparency for a subtle background effect */
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    font-family: 'Courier New', Courier, monospace;
+}
+.text h1{
+    font-size: 3rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}

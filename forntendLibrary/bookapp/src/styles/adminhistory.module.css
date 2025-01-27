@@ -1,0 +1,63 @@
+.history_container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .history_title {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .history_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .history_table th, .history_table td {
+    border: 1px solid #ddd;
+    padding: 12px 8px;
+    text-align: left;
+  }
+  
+  .history_table th {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .history_table td {
+    color: #555;
+  }
+  
+  .history_table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .history_table tr:hover {
+    background-color: #eaf4ea;
+    cursor: pointer;
+  }
+  
+  .loading, .error, .no_records {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #666;
+    margin-top: 20px;
+  }
+  
+  .loading {
+    color: #007bff;
+  }
+  
+  .error {
+    color: #dc3545;
+  }
+  

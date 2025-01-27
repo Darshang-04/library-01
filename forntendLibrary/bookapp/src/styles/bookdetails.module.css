@@ -1,0 +1,365 @@
+.h1 {
+    margin-bottom: 15px;
+}
+
+.book_title {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.8rem;
+    text-decoration: underline;
+}
+
+.bookdetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section1 {
+    width: 80%;
+    display: flex;
+    gap: 50px;
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 50px;
+}
+
+.bookimage {
+    height: 350px;
+    width: 231px;
+    border-radius: 5%;
+}
+
+.sec1_bookname {
+    align-items: center;
+    justify-content: center;
+}
+
+.detailLeft {
+    width: 60%;
+}
+
+.bookinfo {
+    width: 100%;
+    display: flex;
+    margin-top: 0px;
+    /* font-size: 15px; */
+    /* line-height: 1.2; */
+    /* border: 0.9px solid grey; */
+}
+
+.deepDetails {
+    width: 100%;
+    height: 200px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #3f5b94;
+}
+
+
+.ratings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: -5px;
+    margin-right: -200px;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.top p {
+    margin-bottom: 10px;
+}
+
+.star {
+    font-size: 20px;
+    color: #fbc02d;
+    /* Gold color for filled stars */
+}
+
+.star:not(:last-child) {
+    margin-right: 3px;
+}
+
+.ratingText {
+    font-size: 14px;
+    color: #757575;
+    /* Gray for text */
+    margin-top: 4px;
+    margin-left: 10px;
+    margin-left: 20px;
+}
+
+.book_details_container {
+    /* padding: 20px 130px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333333;
+}
+
+.book_details_container::before {
+    content: "";
+    position: absolute;
+    height: 500px;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    opacity: 0.89;
+}
+
+.buttongroup {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.collect_button {
+    color: #fff;
+    height: 40px;
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2eba2e;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.collect_button:disabled {
+    background-color: #a5d6a7;
+    cursor: not-allowed;
+}
+
+.waitlistbutton {
+    padding: 10px 20px;
+    height: 40px;
+    width: 150px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f50100;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.waitlistbutton:disabled {
+    background-color: #f50100;
+    cursor: not-allowed;
+}
+
+.collect_button:hover:not(:disabled),
+.waitlistbutton:hover:not(:disabled) {
+    background-color: #388e3c;
+    /* Darker green for collect button */
+    color: #fff;
+}
+
+.waitlistbutton:hover:not(:disabled) {
+    background-color: #d32f2f;
+    /* Darker red for waitlist button */
+    color: #fff;
+}
+
+.books_row {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    gap: 25px;
+    justify-content: center;
+    padding: 0 7px;
+    z-index: 1;
+}
+
+.recommendation_item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 6px;
+    text-align: center;
+    box-shadow: 12px 11px 10px rgba(2, 55, 141, 0.1);
+    max-width: 225px;
+    max-height: 295px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid rgb(193, 234, 248);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.recommendation_item:hover{
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
+
+.recommendation {
+    margin-top: 10px;
+}
+
+.recommendation h2 {
+    margin-bottom: 20px;
+    color: #4A90E2;
+    text-decoration: underline;
+}
+
+.recommendation_title {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 90%;
+    height: 20px;
+}
+
+@keyframes scroll {
+    from {
+        opacity: 0;
+        scale: 0.5;
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.recommended_books {
+    position: relative;
+    margin: 65px 85px;
+    text-decoration: overline;
+    color: #333333;
+    animation: scroll linear;
+    animation: scroll 1s ease-out;
+}
+
+.ratings {
+    padding-left: 110px;
+}
+
+.ratingText {
+    color: white;
+}
+
+
+.buttongroup {
+    display: flex;
+    justify-content: center;
+}
+
+/* For tablets (768px and below) */
+@media (max-width: 1000px) {
+    .book_details_container {
+        flex-direction: column;
+    }
+
+    .bookdetails {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .bookinfo {
+        text-align: center;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+
+    .detailLeft {
+        order: 1;
+        gap: 5px;
+    }
+
+    .ratings {
+        order: 3;
+        /* padding: 0 230px; */
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Center horizontally and vertically */
+        margin-top: 15px;
+        /* Adjust spacing if needed */
+        padding: 10px;
+        /* Optional padding for better spacing */
+    }
+
+    .detailRight {
+        order: 2;
+        gap: 5px;
+    }
+
+    .deepDetails {
+        flex-direction: column;
+        text-align: center;
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    .imgCover {
+        padding: 10px;
+    }
+
+    .buttongroup {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+}
+
+/* For mobile phones (480px and below) */
+@media (max-width: 480px) {
+    .book_details_container {
+        padding: 10px;
+    }
+
+    .bookimage {
+        height: 250px;
+        width: auto;
+    }
+
+    .bookinfo {
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    .deepDetails {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .recommended_books {
+        margin: 20px 10px;
+    }
+
+    .box {
+        width: 120px;
+        height: 160px;
+        margin: 15px 10px;
+    }
+
+    .buttongroup {
+        gap: 10px;
+    }
+
+    .collect_button,
+    .waitlistbutton {
+        width: 100%;
+        font-size: 14px;
+    }
+}

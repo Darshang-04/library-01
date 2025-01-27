@@ -1,0 +1,136 @@
+/* Styling for the Header */
+/* .header {
+    background-color: #dc3535;
+    padding: 15px 0;
+  } */
+  .header {
+    background-color: #4A90E2;
+    color: white;
+    padding: 10px;
+    text-align: center;
+  }
+  .navbar {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    top: 0px;
+  }
+  .navbar::before{
+    content: "";
+    background-color: black;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 18%;
+    width: 100%;
+    z-index: -1;
+    opacity: 0.9;
+  }
+  
+  .navList {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navItem {
+    margin: 0 20px; /* Adds space between the links */
+  }
+  
+  .navItem a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navItem a:hover {
+    background-color: #b30909;
+  }
+  
+  .main {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    min-height: calc(100vh - 60px);
+  }
+  .logoImage{
+    border-radius: 50%;
+    position: relative;
+  }
+
+  /* src/app/admin/layout.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.body {
+  display: flex; /* Flexbox for the sidebar and main content */
+  flex: 1;
+}
+
+.sidebar {
+  background-color: #f4f4f4;
+  width: 250px; /* Fixed width for the sidebar */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.dropdown{
+  color: #333;
+}
+.dropdownToggle{
+  padding: 10px;
+}
+.dropdownToggle:hover{
+  background-color: #eaeaea;
+  cursor: pointer;
+}
+.dropdownMenu{
+  margin-left: 13px;
+}
+.sidebar li {
+  margin: 10px 0;
+}
+
+.sidebar li a {
+  text-decoration: none;
+  color: #333;
+  display: block; /* Full width for links */
+  padding: 10px;
+  transition: background-color 0.2s;
+}
+
+.sidebar li a:hover {
+  background-color: #eaeaea; /* Highlight on hover */
+}
+
+.main {
+  flex: 1; /* Takes remaining space */
+  padding: 20px;
+}
+
+.footer {
+  text-align: center;
+}
+
+.blueDot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: blue;
+  border-radius: 50%;
+  margin-left: 5px;
+}
+
