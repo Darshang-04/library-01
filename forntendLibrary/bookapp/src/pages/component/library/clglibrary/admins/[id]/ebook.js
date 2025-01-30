@@ -6,13 +6,14 @@ export default function SingleEbook() {
     const router = useRouter();
     const { id } = router.query;
     const [ebook, setEbook] = useState()
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
     useEffect(() => {
         if (!router.isReady || !id) return;
 
         const fetchBookDetails = async () => {
             try {
-                const res = await fetch(`http://localhost:8001/get-ebook/${id}`);
+                const res = await fetch(`${backendUrl}/get-ebook/${id}`);
                 const data = await res.json();
 
                 if (res.status === 200) {

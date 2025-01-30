@@ -12,6 +12,7 @@ export default function AdminBorrow() {
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [responseMessage, setResponseMessage] = useState('');
   const [loading, setLoading] = useState(false); // Add loading state
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +29,7 @@ export default function AdminBorrow() {
   const BorrowbyAdmin = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://localhost:8001/borrow-by-admin', {
+      const response = await fetch(`${backendUrl}/borrow-by-admin`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -51,7 +52,7 @@ export default function AdminBorrow() {
 
   const fetchBookSuggestions = async (query) => {
     try {
-      const response = await fetch(`http://localhost:8001/api/autocomplete-books?q=${query}`);
+      const response = await fetch(`${backendUrl}/api/autocomplete-books?q=${query}`);
       const data = await response.json();
 
       if (data.success) {

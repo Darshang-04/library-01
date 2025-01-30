@@ -13,6 +13,7 @@ export default function Borrowedbook() {
   const { authUser, profileId } = useContext(AuthContext); // Get the authenticated user
   const [borrowedBooks, setBorrowedBooks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL  
   const defaultimage = 'https://th.bing.com/th/id/OIP.3J5xifaktO5AjxKJFHH7oAAAAA?rs=1&pid=ImgDetMain';
   const isValidURL = (url) => {
     try {
@@ -28,7 +29,7 @@ export default function Borrowedbook() {
       // Now authUser is available, make the fetch request
       const fetchBorrowedBooks = async () => {
         try {
-          const res = await fetch(`http://localhost:8001/user/${authUser.id}/borrowed-books`, { 
+          const res = await fetch(`${backendUrl}/user/${authUser.id}/borrowed-books`, { 
             method: 'GET',
             headers: {
               'Content-Type': 'application/json',

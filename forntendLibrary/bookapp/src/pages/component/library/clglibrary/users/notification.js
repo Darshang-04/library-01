@@ -11,6 +11,7 @@ export default function Notification() {
   const [notifications, setNotifications] = useState([]);
   const { profileId } = useContext(AuthContext); // Getting profileId from AuthContext
   const router = useRouter();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   useEffect(() => {
     const fetchNotifications = async () => {
@@ -19,7 +20,7 @@ export default function Notification() {
         return; // Prevent making an API call
       }
       try {
-        const response = await fetch(`http://localhost:8001/notifications/${profileId}`, {
+        const response = await fetch(`${backendUrl}/notifications/${profileId}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

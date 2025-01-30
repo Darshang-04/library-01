@@ -11,13 +11,14 @@ import { useRouter } from 'next/router';
 ChartJS.register(ArcElement, Tooltip, Legend, CategoryScale, LinearScale, BarElement);
 
 export async function getServerSideProps() {
-  const res = await fetch("http://localhost:8001/all-members");
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
+  const res = await fetch(`${backendUrl}/all-members`);
   const data = await res.json();
 
-  const res2 = await fetch("http://localhost:8001/all-books");
+  const res2 = await fetch(`${backendUrl}/all-books`);
   const data2 = await res2.json();
 
-  const res3 = await fetch('http://localhost:8001/all-borrow-books');
+  const res3 = await fetch(`${backendUrl}/all-borrow-books`);
   const data3 = await res3.json()
 
   return {
@@ -37,6 +38,7 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
   const router = useRouter()
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 2;
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   const [barData, setBarData] = useState({
     labels: [],
@@ -74,7 +76,7 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
   useEffect(() => {
     const fetchMostBorrowedBooks = async () => {
       try {
-        const response = await fetch("http://localhost:8001/most-borrowed"); // Replace with your API endpoint
+        const response = await fetch(`${backendUrl}/most-borrowed`); // Replace with your API endpoint
         const result = await response.json();
 
         if (result.success) {
@@ -120,7 +122,7 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
   const fetchTommorow = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:8001/tmr-due-books");
+      const response = await fetch(`${backendUrl}/tmr-due-books`);
       const data = await response.json();
 
       if (data.success) {
@@ -139,7 +141,7 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
   const fetchDueBooks = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:8001/today-due-books");
+      const response = await fetch(`${backendUrl}/today-due-books`);
       const data = await response.json();
 
       if (data.success) {
@@ -216,7 +218,7 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
 
       {/* Tables Section */}
       <div className={styles.tableContainer}>
-        <h3>Today Dues</h3>
+        <h3>Tommorrow Dues</h3>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
@@ -229,6 +231,7 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
                   <th>Book Name</th>
                   <th>Borrower Name</th>
                   <th>Date Borrow</th>
+                  <th>Due Date</th>
                   <th>Contact</th>
                 </tr>
               </thead>
@@ -243,6 +246,7 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
                       <td>
                         {new Date(book.borrowDate).toLocaleDateString("en-US")}
                       </td>
+                      <td>{new Date(book.dueDate).toLocaleDateString("en-US")}</td>
                       <td>{book.user?.email || "N/A"}</td>
                     </tr>
                   ))
@@ -279,7 +283,7 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
       </div>
 
       <div className={styles.tableContainer}>
-        <h3>Tommorrow Dues</h3>
+        <h3>Today Dues</h3>
         {loading ? (
           <p>Loading...</p>
         ) : error ? (
@@ -292,6 +296,7 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
                   <th>Book Name</th>
                   <th>Borrower Name</th>
                   <th>Date Borrow</th>
+                  <th>Due Borrow</th>
                   <th>Contact</th>
                 </tr>
               </thead>
@@ -305,6 +310,9 @@ export default function HomePage({ memberLength, bookslen, allborrowed }) {
                       </td>
                       <td>
                         {new Date(book.borrowDate).toLocaleDateString("en-US")}
+                      </td>
+                      <td>
+                        {new Date(book.dueDate).toLocaleDateString("en-US")}
                       </td>
                       <td>{book.user?.email || "N/A"}</td>
                     </tr>

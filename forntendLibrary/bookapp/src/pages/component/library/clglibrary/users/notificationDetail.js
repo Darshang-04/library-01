@@ -12,7 +12,7 @@ export default function NotificationDetails() {
   const { id } = router.query; // Get the notification ID from the query
   const [notification, setNotification] = useState(null);
   const defaultImage = 'https://th.bing.com/th/id/OIP.3J5xifaktO5AjxKJFHH7oAAAAA?rs=1&pid=ImgDetMain';
-
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const isValidURL = (url) => {
     try {
       new URL(url);
@@ -27,7 +27,7 @@ export default function NotificationDetails() {
 
     const fetchNotificationDetails = async () => {
       try {
-        const response = await fetch(`http://localhost:8001/notifications/details/${id}`, {
+        const response = await fetch(`${backendUrl}/notifications/details/${id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',

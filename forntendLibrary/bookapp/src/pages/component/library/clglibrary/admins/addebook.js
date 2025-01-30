@@ -13,7 +13,7 @@ export default function UploadEBook() {
     isbn: '',
     fileType: '',
   });
-
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const [file, setFile] = useState(null);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -38,7 +38,7 @@ export default function UploadEBook() {
         form.append(key, formData[key]);
       });
 
-      const response = await fetch('http://localhost:8001/upload-ebook', {
+      const response = await fetch(`${backendUrl}/upload-ebook`, {
         method: 'POST',
         body: form,
       });

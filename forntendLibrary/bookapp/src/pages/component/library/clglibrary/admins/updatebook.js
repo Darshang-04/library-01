@@ -10,6 +10,7 @@ export default function AdminUpdateBook() {
   const [filterBooks, setFilterBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const defaultimage = 'https://th.bing.com/th/id/OIP.3J5xifaktO5AjxKJFHH7oAAAAA?rs=1&pid=ImgDetMain';
   const isValidURL = (url) => {
     try {
@@ -24,7 +25,7 @@ export default function AdminUpdateBook() {
     // Now authUser is available, make the fetch request
     const fetchBorrowedBooks = async () => {
       try {
-        const res = await fetch(`http://localhost:8001/all-borrow-books`, {
+        const res = await fetch(`${backendUrl}/all-borrow-books`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ export default function AdminUpdateBook() {
     if (!window.confirm("Are you sure you want to remove this book?")) return;
 
     try {
-      const response = await fetch(`http://localhost:8001/remove-borrow/${bookId}`, {
+      const response = await fetch(`${backendUrl}/remove-borrow/${bookId}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

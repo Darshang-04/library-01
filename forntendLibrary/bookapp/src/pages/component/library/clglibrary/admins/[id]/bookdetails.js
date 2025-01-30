@@ -66,6 +66,7 @@ export default function BookDetails() {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
   const [recommendations, setRecommendations] = useState([])
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const defaultimage = 'https://th.bing.com/th/id/OIP.3J5xifaktO5AjxKJFHH7oAAAAA?rs=1&pid=ImgDetMain';
   const isValidURL = (url) => {
     try {
@@ -96,7 +97,7 @@ export default function BookDetails() {
     }
     try {
       // Sending a POST request to borrow the book
-      const response = await fetch(`http://localhost:8001/borrow/${profileId}/${id}`, {
+      const response = await fetch(`${backendUrl}/borrow/${profileId}/${id}`, {
         method: "POST",
         headers: { 
           "Content-Type": "application/json",
@@ -135,7 +136,7 @@ export default function BookDetails() {
 
   const handleWaitlist = async () => {
     try {
-      const response = await fetch('http://localhost:8001/waitlist', {
+      const response = await fetch(`${backendUrl}/waitlist`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId: profileId, bookId: bookdetails.book._id }),
@@ -166,7 +167,7 @@ export default function BookDetails() {
 
     const fetchBookDetails = async () => {
       try {
-        const res = await fetch(`http://localhost:8001/book/${id}`);
+        const res = await fetch(`${backendUrl}/book/${id}`);
         const data = await res.json();
 
         if (res.status === 200) {

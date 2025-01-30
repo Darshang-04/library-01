@@ -14,14 +14,14 @@ export default function ViewEBook() {
   const [error, setError] = useState('');
   const [selectedOption, setSelectedOption] = useState('viewbook');
   const router = useRouter();
-
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const Layout = authUser.role === 'user' ? Userlayout : AdminLayout;
 
   // Fetch eBooks from the backend API
   useEffect(() => {
     const fetchEBooks = async () => {
       try {
-        const response = await fetch('http://localhost:8001/all-ebooks'); // Adjust the URL based on your backend
+        const response = await fetch(`${backendUrl}/all-ebooks`); // Adjust the URL based on your backend
         if (!response.ok) {
           throw new Error('Failed to fetch eBooks.');
         }

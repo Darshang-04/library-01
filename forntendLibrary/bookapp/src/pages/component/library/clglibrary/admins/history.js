@@ -8,12 +8,13 @@ export default function History() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   useEffect(() => {
     // Fetch history data from the API
     const fetchHistory = async () => {
       try {
-        const response = await fetch('http://localhost:8001/admin-history'); // Adjust API endpoint as per your backend
+        const response = await fetch(`${backendUrl}/admin-history`); // Adjust API endpoint as per your backend
         if (!response.ok) {
           throw new Error('Failed to fetch history records.');
         }

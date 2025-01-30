@@ -11,6 +11,7 @@ export default function LibrarySignin({ initialError }) {
   const [success, setSuccess] = useState('');
   const { setProfile } = useContext(AuthContext);
   const router = useRouter();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -21,7 +22,7 @@ export default function LibrarySignin({ initialError }) {
     setError('');
     setSuccess('');
     try {
-      const res = await fetch('http://localhost:8001/auth/signin-user', {
+      const res = await fetch(`${backendUrl}/auth/signin-user`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),

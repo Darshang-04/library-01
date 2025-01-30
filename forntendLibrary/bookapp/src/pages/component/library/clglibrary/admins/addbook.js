@@ -5,6 +5,7 @@ import styles from '@/styles/bookform.module.css';
 export default function AdminAddBook() {
   const [success, setSuccess]= useState('')
   const [error, setError]= useState('')
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const [formData, setFormData] = useState({
     isbn: '',
     title: '',
@@ -66,7 +67,7 @@ export default function AdminAddBook() {
     };
 
     try {
-      const res = await fetch('http://localhost:8001/add-books', {
+      const res = await fetch(`${backendUrl}/add-books`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(bookData), // Send the specific fields

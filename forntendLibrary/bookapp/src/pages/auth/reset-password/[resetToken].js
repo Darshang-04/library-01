@@ -7,6 +7,7 @@ export default function ResetPassword() {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +17,7 @@ export default function ResetPassword() {
     }
 
     try {
-      const response = await fetch(`http://localhost:8001/forget/reset-password`, {
+      const response = await fetch(`${backendUrl}/forget/reset-password`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: resetToken, newPassword }),

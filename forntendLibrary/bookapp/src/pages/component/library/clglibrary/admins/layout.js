@@ -6,7 +6,7 @@ import NextNProgress from 'nextjs-progressbar';
 export default function AdminLayout({ children }) {
   const [showDot, setShowDot] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const reloadPage = () => {
     window.location.reload();
   };
@@ -15,7 +15,7 @@ export default function AdminLayout({ children }) {
   useEffect(() => {
     const fetchRequestCount = async () => {
       try {
-        const response = await fetch("http://localhost:8001/borrow-requests/count-pending");
+        const response = await fetch(`${backendUrl}/borrow-requests/count-pending`);
         const data = await response.json();
         setShowDot(data.count);  // Set the member count
       } catch (error) {
@@ -24,7 +24,7 @@ export default function AdminLayout({ children }) {
     };
     const fetchWaitCount = async () => {
       try {
-        const response = await fetch("http://localhost:8001/waitlist-requests/count-pending");
+        const response = await fetch(`${backendUrl}/waitlist-requests/count-pending`);
         const data = await response.json();
         setShowDot(data.count);  // Set the member count
       } catch (error) {

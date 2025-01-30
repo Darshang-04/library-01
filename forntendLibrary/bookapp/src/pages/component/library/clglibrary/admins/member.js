@@ -64,7 +64,7 @@ export default function Member() {
   const router = useRouter();
   const [showModal, setShowModal] = useState(false);
   const [selectedMemberId, setSelectedMemberId] = useState(null);
-
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const openModal = (memberId) => {
     setSelectedMemberId(memberId);
     setShowModal(true);
@@ -77,7 +77,7 @@ export default function Member() {
 
   const handleRemoveMember = async (memberId) => {
     try {
-      const response = await fetch(`http://localhost:8001/remove-member/${memberId}`, {
+      const response = await fetch(`${backendUrl}/remove-member/${memberId}`, {
         method: 'DELETE',
       });
   
@@ -101,7 +101,7 @@ export default function Member() {
   useEffect(() => {
     const fetchMembers = async () => {
       try {
-        const response = await fetch('http://localhost:8001/all-members');
+        const response = await fetch(`${backendUrl}/all-members`);
         const data = await response.json();
         setMembers(data.members);
       } catch (error) {

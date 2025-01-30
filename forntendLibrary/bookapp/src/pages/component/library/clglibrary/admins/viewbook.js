@@ -24,6 +24,7 @@ export default function AdminViewBook() {
   const [currentPage, setCurrentPage] = useState(1); // Current page state
   const [totalPages, setTotalPages] = useState(1); // Total pages state
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   // Total pages state
   // const [selectedOption, setSelectedOption] = useState('viewbook');
   // const [searchQuery, setSearchQuery] = useState('');
@@ -45,7 +46,7 @@ export default function AdminViewBook() {
   const fetchBooks = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8001/get-clg-books?page=${currentPage}`);
+      const response = await fetch(`${backendUrl}/get-clg-books?page=${currentPage}`);
       if (!response.ok) {
         throw new Error('Failed to fetch books');
       }
@@ -61,7 +62,7 @@ export default function AdminViewBook() {
 
   const fetchSubjects = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:8001/subjects');
+      const response = await fetch(`${backendUrl}/subjects`);
       if (!response.ok) {
         throw new Error('Failed to fetch subjects');
       }
@@ -100,7 +101,7 @@ export default function AdminViewBook() {
   const searchBooks = async () => {
     setLoading(true);
     try {
-      const url = `http://localhost:8001/search-by-filter?subname=${subject}&query=${query}`;
+      const url = `${backendUrl}/search-by-filter?subname=${subject}&query=${query}`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error('Failed to search books');

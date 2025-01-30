@@ -8,11 +8,12 @@ ForgotPassword.getLayout = function getLayout(page) {
   export default function ForgotPassword() {
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   
     const handleSubmit = async (e) => {
       e.preventDefault();
       try {
-        const response = await fetch('http://localhost:8001/auth/forgot-password', {
+        const response = await fetch(`${backendUrl}/auth/forgot-password`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email }),

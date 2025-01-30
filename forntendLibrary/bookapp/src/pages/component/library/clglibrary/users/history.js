@@ -8,6 +8,7 @@ export default function History() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const { authUser } = useContext(AuthContext);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const defaultimage = 'https://th.bing.com/th/id/OIP.3J5xifaktO5AjxKJFHH7oAAAAA?rs=1&pid=ImgDetMain';
   const isValidURL = (url) => {
     try {
@@ -28,7 +29,7 @@ export default function History() {
     const fetchHistory = async () => {
       try {
         console.log(`Fetching history for user ID: ${authUser.id}`);
-        const response = await fetch(`http://localhost:8001/users/${authUser.id}/history`, {
+        const response = await fetch(`${backendUrl}/users/${authUser.id}/history`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

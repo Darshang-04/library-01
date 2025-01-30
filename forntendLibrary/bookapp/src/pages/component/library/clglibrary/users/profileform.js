@@ -74,7 +74,7 @@ export default function ProfileForm({ initialError }) {
     setSuccess(''); // Reset success message
 
     try {
-      const res = await fetch('http://localhost:8001/user-profile-edit', {
+      const res = await fetch(`${backendUrl}/user-profile-edit`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

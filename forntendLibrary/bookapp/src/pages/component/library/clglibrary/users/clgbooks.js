@@ -6,22 +6,28 @@ import { useCallback } from 'react';
 import styles from '../../../../../styles/allbooks.module.css';
 import Lottie from 'lottie-react';
 import booksrch from "./../../../../../../public/booksrch.json";
+import { FaSearch } from 'react-icons/fa';
+import SearchFilterBooks from './searchfilterbooks';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 export default function ClgBooks() {
   const router = useRouter();
-  const [menuOpen, setMenuOpen] = useState([]);
+  const [searchType, setSearchType] = useState(''); // Tracks which input is clicked
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [subject, setSubject] = useState('');
   const [subjects, setSubjects] = useState([]);
   const [query, setQuery] = useState('');
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showSearchFilter, setShowSearchFilter] = useState(true); 
   const [selectedSuggestionIndex, setSelectedSuggestionIndex] = useState(-1);
   const defaultimage = 'https://th.bing.com/th/id/OIP.3J5xifaktO5AjxKJFHH7oAAAAA?rs=1&pid=ImgDetMain';
   const subjectInputRef = useRef(null);
-
+  const popupRef = useRef();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const isValidURL = (url) => {
     try {
       new URL(url);
@@ -31,10 +37,11 @@ export default function ClgBooks() {
     }
   };
 
+
   const fetchBooks = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8001/get-clg-books?page=${currentPage}`);
+      const response = await fetch(`${backendUrl}/get-clg-books?=page=${currentPage}`);
       if (!response.ok) {
         throw new Error('Failed to fetch books');
       }
@@ -48,9 +55,47 @@ export default function ClgBooks() {
     }
   }, [currentPage]);
 
+  // popup for search
+  const togglePopup = () => {
+    setIsPopupOpen(!isPopupOpen);
+  };
+  const handleSearchResults = (results) => {
+    setBooks(results);
+    // console.log("main component ",results)
+  }
+
+  const handleCloseSearchFilter = () => {
+    setShowSearchFilter(false); // Set to false to hide the SearchFilterBooks component
+  };
+
+  const handleClosePopup = (e) => {
+    if (popupRef.current && !popupRef.current.contains(e.target)) {
+      setIsPopupOpen(false); // Close popup if clicked outside
+      setSearchType(''); // reset search
+    }
+  };
+
+  useEffect(() => {
+    if (isPopupOpen) {
+      document.addEventListener('mousedown', handleClosePopup);
+    } else {
+      document.removeEventListener('mousedown', handleClosePopup);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClosePopup);
+    };
+  }, [isPopupOpen]);
+  const handleInputFocus = (type) => {
+    setSearchType(type);
+    setShowSearchFilter(true)
+    setIsPopupOpen(false)
+  };
+
+  // subject filter
   const fetchSubjects = useCallback(async () => {
     try {
-      const response = await fetch('http://localhost:8001/subjects');
+      const response = await fetch(`${backendUrl}/subjects`);
       if (!response.ok) {
         throw new Error('Failed to fetch subjects');
       }
@@ -74,17 +119,15 @@ export default function ClgBooks() {
   };
 
   const handleSubjectSelect = (selectedSubject) => {
-    console.log(selectedSubject)
     setSubject(selectedSubject);
     setShowSuggestions(false);
-  };
-
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  }
 
   const searchBooks = async () => {
+
     setLoading(true);
     try {
-      const url = `http://localhost:8001/search-by-filter?subname=${subject}&query=${query}`;
+      const url = `${backendUrl}/search-by-filter?subname=${subject}&query=${query}`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error('Failed to search books');
@@ -133,6 +176,7 @@ export default function ClgBooks() {
       e.preventDefault(); // Prevent form submission on Enter
     }
   };
+
   useEffect(() => {
     if (selectedSuggestionIndex >= 0 && subjectInputRef.current) {
       const suggestionList = subjectInputRef.current.querySelector('.' + styles.suggestions);
@@ -158,51 +202,69 @@ export default function ClgBooks() {
     <div className={styles.books_container}>
       <div className={styles.control_bar}>
         <h1>All Books</h1>
-        <div className={styles.filter} onClick={toggleMenu}>
-          <Image src="/WhatsApp Image 2025-01-20 at 13.04.13_8901dccb.jpg" alt="Logo" height={40} width={50} className={styles.image} />
-        </div>
-        {/* mobile responsive */}
-        <div className={`${styles.sidebar} ${menuOpen ? styles.open : ''}`}>
-          <div className={styles.Msearch_bar}>
-            <input
-              type="text"
-              placeholder="Search books by title or author..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && searchBooks()}
-            />
-            <div ref={subjectInputRef} className={styles.subject_input_container}>
-              <input
-                type="text"
-                placeholder="Search by subject..."
-                value={subject}
-                onChange={handleSubjectChange}
-                onFocus={() => setShowSuggestions(true)}
-                onKeyDown={handleKeyDown}
-              />
-              {showSuggestions && (
-                <div className={styles.M_suggestions}>
-                  {subjects
-                    .filter((s) => s.toLowerCase().includes(subject.toLowerCase()))
-                    .map((suggestion, index) => (
-                      <div
-                        key={index}
-                        onClick={() => handleSubjectSelect(suggestion)}
-                        className={`${styles.M_suggestion_item} ${index === selectedSuggestionIndex ? styles.selected : ''
-                          }`}
-                      >
-                        {suggestion}
-                      </div>
-                    ))}
-                </div>
-              )}
-            </div>
+        <div>
+          {/* Search Icon */}
+          <div className={styles.filter} onClick={togglePopup}>
+            <FaSearch className={styles.search_icon} />
           </div>
-          <button className={styles.Mobile_submit_button} onClick={searchBooks}>
-            Search
-          </button>
-        </div>
 
+          {/* Initial Popup */}
+          {isPopupOpen && (
+            <div className={styles.popup_backdrop}>
+              <div ref={popupRef} className={styles.popup}>
+                <div
+                  className="type_of_search"
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    gap: '5px',
+                  }}
+                >
+                  <div>
+                    <label className="label" style={{ fontSize: '12px' }}>
+                      Title
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Search book by title"
+                      className={styles.popup_input}
+                      onFocus={() => handleInputFocus('title')}
+                    />
+                  </div>
+                  <span style={{ marginTop: '13px' }}>or</span>
+                  <div>
+                    <label className="label" style={{ fontSize: '12px' }}>
+                      Author
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Search book by author"
+                      className={styles.popup_input}
+                      onFocus={() => handleInputFocus('author')}
+                    />
+                  </div>
+                </div>
+                <label className="label" style={{ fontSize: '12px' }}>
+                  Subject filter
+                </label>
+                <input
+                  type="text"
+                  placeholder="Filter books by subject..."
+                  className={styles.popup_input}
+                  onFocus={() => handleInputFocus('subject')}
+                />
+                <button
+                  onClick={togglePopup}
+                  className={styles.popup_button}
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          )}
+
+        </div>
         <div className={styles.search_bar}>
           <input
             type="text"
@@ -241,6 +303,7 @@ export default function ClgBooks() {
         <button className={styles.submit_button} onClick={searchBooks}>
           Search
         </button>
+
       </div>
       {loading && <div className={styles.loadingOverlay}>
 
@@ -284,6 +347,11 @@ export default function ClgBooks() {
           Next
         </button>
       </div>
+      {searchType && showSearchFilter && (
+        <div className={styles.single_input}>
+          <SearchFilterBooks type={searchType} onSearchResults={handleSearchResults} onClose={handleCloseSearchFilter}/>
+        </div>
+      )}
     </div>
   );
 }

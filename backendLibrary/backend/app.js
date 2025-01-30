@@ -43,18 +43,18 @@ app.get('/', (req, res) => {
     res.json("Libray Server ....")
 });
 
-app.get('/search', async (req, res) => {
-    const { query } = req.query; // Get user query
-    try {
-      const results = await BookForm.find(
-        { $text: { $search: query } },
-        { score: { $meta: "textScore" } }
-      ).sort({ score: { $meta: "textScore" } });
-      res.json(results);
-    } catch (err) {
-      res.status(500).json({ message: 'Error searching books', error: err });
-    }
-  });
+// app.get('/search', async (req, res) => {
+//     const { query } = req.query; // Get user query
+//     try {
+//       const results = await BookForm.find(
+//         { $text: { $search: query } },
+//         { score: { $meta: "textScore" } }
+//       ).sort({ score: { $meta: "textScore" } });
+//       res.json(results);
+//     } catch (err) {
+//       res.status(500).json({ message: 'Error searching books', error: err });
+//     }
+//   });
 
 app.post('/api/addmember', addmember);
 app.post('/auth/signin-user', Signin.signin)
@@ -93,6 +93,7 @@ app.get('/tmr-due-books', TommorrowDue.tommorowdue)
 app.get('/today-due-books', TommorrowDue.todaydue)
 app.get('/most-borrowed', mostBorrowedBooks)
 app.get('/api/autocomplete-books', userbrbook.autocompleteBooks);
+app.get('/api/autocomplete-author', userbrbook.autocompleteAuthor);
 app.post('/borrow-by-admin', userbrbook.presentBorrow)
 app.get('/admin-history', AdminHistory.getAdminHistory)
 app.get('/user-penalties', Penalty.getPenalty)

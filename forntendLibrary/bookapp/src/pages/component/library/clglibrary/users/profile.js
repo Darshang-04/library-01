@@ -13,6 +13,7 @@ export default function Profile() {
   const [showPopup, setShowPopup] = useState(false); // For logout confirmation
   const router = useRouter();
   const { authUser, signOut } = useContext(AuthContext);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -24,7 +25,7 @@ export default function Profile() {
           return;
         }
 
-        const res = await fetch('http://localhost:8001/get-user-profile', {
+        const res = await fetch(`${backendUrl}/get-user-profile`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

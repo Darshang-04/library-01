@@ -7,6 +7,7 @@ export default function SearchItems() {
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const defaultimage = 'https://th.bing.com/th/id/OIP.3J5xifaktO5AjxKJFHH7oAAAAA?rs=1&pid=ImgDetMain';
   const isValidURL = (url) => {
     try {
@@ -20,7 +21,7 @@ export default function SearchItems() {
   const fetchBooks = useCallback(async () => {
     setLoading(true);
     try {
-      const response = await fetch(`http://localhost:8001/get-clg-books`);
+      const response = await fetch(`${backendUrl}/get-clg-books`);
       if (!response.ok) {
         throw new Error('Failed to fetch books');
       }
@@ -49,7 +50,7 @@ export default function SearchItems() {
     setLoading(true);
 
     try {
-      const response = await fetch(`http://localhost:8001/search-books?query=${query}`);
+      const response = await fetch(`${backendUrl}/search-books?query=${query}`);
       if (!response.ok) {
         throw new Error('Failed to fetch search results');
       }

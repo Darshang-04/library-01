@@ -4,11 +4,12 @@ import AdminLayout from './layout';
 export default function AdminPenaltySection() {
   const [penalties, setPenalties] = useState([]);
   const [loading, setLoading] = useState(true);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   useEffect(() => {
     const fetchPenalties = async () => {
       try {
-        const res = await fetch('http://localhost:8001/user-penalties', {
+        const res = await fetch(`${backendUrl}/user-penalties`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' },
         });

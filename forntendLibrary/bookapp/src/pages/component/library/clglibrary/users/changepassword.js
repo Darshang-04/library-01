@@ -14,6 +14,7 @@ export default function ChangePassword() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [message, setMessage] = useState('');
   const router = useRouter();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   useEffect(() => {
     // Check for token on component mount
@@ -40,7 +41,7 @@ export default function ChangePassword() {
             return;
         }
 
-        const response = await fetch('http://localhost:8001/change-user/password', {
+        const response = await fetch(`${backendUrl}/change-user/password`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -9,6 +9,7 @@ export default function Userinfo() {
   const [profileData, setProfileData] = useState(null);
   const [error, setError] = useState('');
   const router = useRouter();
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   useEffect(() => {
     const fetchProfileData = async () => {
@@ -20,7 +21,7 @@ export default function Userinfo() {
           return;
         }
 
-        const res = await fetch('http://localhost:8001/get-user-profile', {
+        const res = await fetch(`${backendUrl}/get-user-profile`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,

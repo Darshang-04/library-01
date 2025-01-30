@@ -12,12 +12,13 @@ export default function Others() {
   const [filteredEBooks, setFilteredEBooks] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState('');
   const [categorys, setCategorys] = useState([]);
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
 
   // Fetch eBooks from the backend API
   useEffect(() => {
     const fetchEBooks = async () => {
       try {
-        const response = await fetch('http://localhost:8001/all-ebooks'); // Adjust the URL based on your backend
+        const response = await fetch(`${backendUrl}/all-ebooks`); // Adjust the URL based on your backend
         if (!response.ok) {
           throw new Error('Failed to fetch eBooks.');
         }
@@ -33,7 +34,7 @@ export default function Others() {
 
     const fetchCategorys = async () => {
       try {
-        const res = await fetch('http://localhost:8001/all-categorys'); // Assume an endpoint to get available categories
+        const res = await fetch(`${backendUrl}/all-categorys`); // Assume an endpoint to get available categories
         const data = await res.json();
 
         if (res.status === 200) {
